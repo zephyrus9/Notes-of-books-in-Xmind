@@ -1,3 +1,3 @@
 ### readme.md
 
-plot the frame of some books with Xmind
+This repo contains some books frame drawed with Xmind software!
