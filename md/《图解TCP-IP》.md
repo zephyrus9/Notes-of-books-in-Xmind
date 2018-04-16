@@ -11,3 +11,4 @@ TCP(Transmission Control Protocol) IP(Internet Protocol)
 ### 背景
 
 ![中央集中式](pics\集中式.PNG)
+<div align="center"> <img src="../pics//集中式.PNG" width="800"/> </div><br>
