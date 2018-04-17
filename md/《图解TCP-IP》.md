@@ -144,4 +144,14 @@ E类：
 DNS系统：可以有效管理主机名和IP地址之间对应关系。
 在应用中，输入主机名时候，DNS会自动检索那个注册了主机名和IP地址的数据库，并且迅速定位对应的IP地址。
 > 在Windows和linux中，使用<font color=red face="微软雅黑">**“nslookup 主机名”**</font>命令查询对应的IP地址。
-> 
+
+### ARP (Address Resolution Protocol)
+
+ARP是一种解决地址问题的协议。以目标IP地址为线索，用来定位下一个应该接收数据分包的网络设备对应的MAC地址。如果目标主机不在同一个链路上，可以通过ARP查找下一跳路由器的MAC地址。
+> ARP只适用于IPv4，不适用IPv6，IPv6中有ICMPv6替代ARP发送邻居探索消息。
+
+ARP通过 **ARP请求**和**ARP响应**两种类型来确定MAc地址的。
+
+
+ARP工作机制：
+<div align="center"> <img src="../pics//ARP工作机制.PNG" width="600"/> </div><br>
