@@ -143,7 +143,7 @@ E类：
 
 DNS系统：可以有效管理主机名和IP地址之间对应关系。
 在应用中，输入主机名时候，DNS会自动检索那个注册了主机名和IP地址的数据库，并且迅速定位对应的IP地址。
-> 在Windows和linux中，使用<font color=red face="微软雅黑">**“nslookup 主机名”**</font>命令查询对应的IP地址。
+> 在Windows和linux中，使用 <font color=red>**“nslookup 主机名”**</font> 命令查询对应的IP地址。
 
 ### ARP (Address Resolution Protocol)
 
