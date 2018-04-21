@@ -155,3 +155,6 @@ ARP通过 **ARP请求**和**ARP响应**两种类型来确定MAc地址的。
 
 ARP工作机制：
 <div align="center"> <img src="../pics//ARP工作机制.PNG" width="600"/> </div><br>
+
+#### ICMP
+
