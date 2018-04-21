@@ -43,7 +43,7 @@ ARPANET，阿帕网，全球互联网的鼻祖，起初是为了连接美国西�
 #### MAC地址
 用于识别数据链路中互联的节点。长度为48比特。
 
-## IP协议
+## 第四章 IP协议
 
 IP相当于OSI参考模型的第三层网络层，主要作用是实现终端节点之间的通信。
 
@@ -137,7 +137,7 @@ E类：
 <div align="center"> <img src="../pics//IPv6.PNG" width="600"/> </div><br>
 
 
-## IP协议相关技术
+## 第五章 IP协议相关技术
 
 ### 1. DNS 动态主机系统
 
@@ -157,4 +157,12 @@ ARP工作机制：
 <div align="center"> <img src="../pics//ARP工作机制.PNG" width="600"/> </div><br>
 
 #### ICMP
+
+#### DHCP
+
+#### NAT 
+NAT(Network Address Translator)用于在本地网络中使用私有地址，在连接互联网时转而使用全局IP地址的技术。
+
+
+## 第六章 TCP与UDP
 
