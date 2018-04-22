@@ -166,3 +166,42 @@ NAT(Network Address Translator)用于在本地网络中使用私有地址，在�
 
 ## 第六章 TCP与UDP
 
+TCP（Transmission Control Protocol），UDP（User Datagram Protocol）传输协议。
+位于<传输层>
+
+TCP提供可靠的通信传输，UDP常被用于让广播和细节控制交给应用的通信传输。
+TCP：
+
+* 面向连接的、可靠的流协议；
+* TCP为提供可靠性传输，实行“顺序控制”或“重发控制”机制；
+* 好具备“流控制”和“拥塞控制”，提高网络利用率等众多的功能。
+
+UDP：
+
+* 不具有可靠的数据报协议。
+#### TCP与UDP的区别
+
+TCP： 用于在传输层有必要实现可靠传输的情况。  
+UDP： 主要用于哪些对高速传输和实时性有较高要求的通信或广播通信。
+
+<div align="center"> <img src="../pics//TCP_UDP.PNG" width="600"/> </div><br>
+
+#### 套接字（socket）
+
+
+<div align="center"> <img src="https://pic4.zhimg.com/80/v2-ec4fee50f6d32c0b5f66fb59cd4f6ec7_hd.jpg" width="600"/> </div><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
