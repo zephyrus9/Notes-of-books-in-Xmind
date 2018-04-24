@@ -35,5 +35,5 @@ This repo contains some books frame drawed with Xmind software!
 ## Linux
 * [鸟哥的私房菜]()
 
-## 工具
+## 常用工具
 * [Git]()
