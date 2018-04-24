@@ -12,6 +12,7 @@ This repo contains some books frame drawed with Xmind software!
 ## 计算机网络
 * [图解TCP/IP]()
 * [图解HTTP]()
+* [计算机网络(第七版-谢希仁)]()
 
 ## Python基础
 * [Python基础教程]()
