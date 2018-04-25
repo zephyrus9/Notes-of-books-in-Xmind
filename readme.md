@@ -28,7 +28,7 @@ This repo contains some books frame drawed with Xmind software!
 * [Flask web开发](https://book.douban.com/subject/26274202/)
 
 ## 数据库
-* [MongoDB权威指南]()
+* [MongoDB权威指南](https://blog.csdn.net/zephyr999/article/details/80070452)
 * [高性能MySQL]()
 * []()
 
