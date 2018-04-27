@@ -1,5 +1,6 @@
 # <div align="center"> **《图解TCP/IP》** </div>
 
+<div align="center"> <img src="https://img1.doubanio.com/view/subject/l/public/s26676928.jpg" width="600"/> </div><br>
 
 ----------
 
@@ -151,7 +152,6 @@ ARP是一种解决地址问题的协议。以目标IP地址为线索，用来定
 > ARP只适用于IPv4，不适用IPv6，IPv6中有ICMPv6替代ARP发送邻居探索消息。
 
 ARP通过 **ARP请求**和**ARP响应**两种类型来确定MAc地址的。
-
 
 ARP工作机制：
 <div align="center"> <img src="../pics//ARP工作机制.PNG" width="600"/> </div><br>
