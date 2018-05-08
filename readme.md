@@ -23,7 +23,7 @@ This repo contains some books frame drawed with Xmind software!
 
 * [Python cookbook]()
 * [Fluent Python](http://shop.oreilly.com/product/0636920032519.do)
-* [python核心编程(第三版)]()
+* [python核心编程(第三版)]( )
 ## Python框架
 * [Flask web开发](https://book.douban.com/subject/26274202/)
 
@@ -36,4 +36,4 @@ This repo contains some books frame drawed with Xmind software!
 * [鸟哥的私房菜]()
 
 ## 常用工具
-* [Git]()
+* [Git](https://gitee.com/progit/)
