@@ -8,6 +8,7 @@ This repo contains some books frame drawed with Xmind software!
 * [Problem Solving with Algorithms and Data Structures using Python](http://www.interactivepython.org/runestone/static/pythonds/index.html)
 * [Data Structures and Algorithms in Python]()
 * [算法 第四版](http://vdisk.weibo.com/s/uKgbN23K6OpNt)
+* [程序员代码面试指南(左程云)]()
 
 ## 计算机网络
 * [图解TCP/IP]()
@@ -24,7 +25,7 @@ This repo contains some books frame drawed with Xmind software!
 * [Python cookbook]()
 * [Fluent Python](http://shop.oreilly.com/product/0636920032519.do)
 * [python核心编程(第三版)]( )
-* [Python编程导论(第二版)]()
+* [Python编程导论(第二版)](https://github.com/zephyrus9/Notes-of-books-in-Xmind/blob/master/pdf/Python%E7%BC%96%E7%A8%8B%E5%AF%BC%E8%AE%BA.pdf)
 ## Python框架
 * [Flask web开发](https://book.douban.com/subject/26274202/)
 
