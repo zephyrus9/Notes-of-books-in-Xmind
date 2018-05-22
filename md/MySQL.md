@@ -395,8 +395,15 @@ Auto-increment 会在新记录插入表中时生成一个唯一的数字。
 	PRIMARY KEY (ID)
 	)
 
+## SQL 视图（Views） ##
+视图是可视化的表。
+
+## SQL Date 函数 ##
 
 
+
+# SQL 函数 #
+SQL 拥有很多可用于计数和计算的内建函数。
 
 
 
