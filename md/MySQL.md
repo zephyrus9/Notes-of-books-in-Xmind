@@ -1,4 +1,4 @@
-## 第一部分 SQL简介 ##
+# 第一部分 SQL简介 #
 
 SQL，指结构化查询语言，全称是 Structured Query Language。
 
@@ -11,6 +11,7 @@ RDBMS 是 SQL 的基础，同样也是所有现代数据库系统的基础，比
 ## SQL 语法 ##
 
 SHOW DATABASES;
+
 列出 MySQL 数据库管理系统的数据库列表。
 
 
@@ -53,7 +54,6 @@ WHERE 子句用于过滤记录。
 
 	SELECT * FROM Websites WHERE country='CN';
 	SELECT * FROM Websites WHERE id=1;
-
 
 ## SQL AND & OR 运算符 ##
 
@@ -199,16 +199,22 @@ LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。
 ## SQL 通配符 ##
 在 SQL 中，通配符与 SQL LIKE 操作符一起使用。
 
-- %：替代 0 个或多个字符
-- _：替代一个字符
-- [charlist]：字符列中的任何单一字符
-- [^charlist]或[!charlist]：不在字符列中的任何单一字符
+- %：替代 0 个或多个字符；
+- _：替代一个字符；
+- [charlist]：字符列中的任何单一字符；
+- [^charlist]或[!charlist]：不在字符列中的任何单一字符。
 
 实例
 
 	SELECT * FROM Websites
 	WHERE url LIKE 'https%';
 <img src="http://www.runoob.com/wp-content/uploads/2013/09/wildcards1.jpg">
+
+> 通配符使用很方便，但是也是有代价的，通配符搜索的处理一般要花费很长的时间，所以：
+> 不要过度的使用通配符；注意通配符的位置。
+
+
+
 
 ## SQL IN 操作符 ##
 IN 操作符允许您在 WHERE 子句中规定多个值。
@@ -352,9 +358,6 @@ MySQL：
 	FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)
 	)
 
-
-
-
 ## DROP ##
 DROP 语句，可以轻松地删除索引、表和数据库。
 
@@ -400,33 +403,94 @@ Auto-increment 会在新记录插入表中时生成一个唯一的数字。
 
 ## SQL Date 函数 ##
 
-
-
 # SQL 函数 #
 SQL 拥有很多可用于计数和计算的内建函数。
 
-## SQL Aggregate 函数 ##
+## SQL Aggregate 聚集函数 ##
 SQL Aggregate 函数计算从列中取得的值，返回一个单一的值。
 
 - AVG() 返回平均值
+		
+	SELECT AVG(count) AS CountAverage FROM access_log;
 - COUNT() 返回行数
-- FIRST() 返回第一个记录的值
-- LAST() 返回最后一个记录的值
+	
+	SELECT COUNT(column_name) FROM table_name;
+
+
 - MAX() 返回最大值
+	
+	SELECT MAX(column_name) FROM table_name;
 - MIN() 返回最小值
+	
+	SELECT MIN(column_name) FROM table_name;
 - SUM() 返回总和
 
+	SELECT SUM(column_name) FROM table_name;
+
+### 组合聚集函数 ###
+
+	SELECT COUNT(*) AS num_items,
+		MIN(prod_price) AS price_min,
+		MAX(prod_price) AS price_max,
+		AVG(prod_price) AS price_avg
+	FROM products;
 
 
+## SQL Scalar 函数 ##
+SQL Scalar 函数基于输入值，返回一个单一的值。
+
+- UCASE() 将某个字段转换为大写
+- LCASE() 将某个字段转换为小写
+- MID() 从某个文本字段提取字符，MySql 中使用
+- SubString(字段，1，end) 从某个文本字段提取字符
+- LEN() 返回某个文本字段的长度
+- ROUND() 对某个数值字段进行指定小数位数的四舍五入
+- NOW() 返回当前的系统日期和时间
+- FORMAT() 格式化某个字段的显示方式
+
+first：
+
+	SELECT column_name FROM table_name
+	ORDER BY column_name ASC
+	LIMIT 1;
+last:
+
+	SELECT column_name FROM table_name
+	ORDER BY column_name DESC
+	LIMIT 1;
 
 
+## GROUP BY 语句 ##
+
+GROUP BY 语句可结合一些聚合函数来使用
+
+SQL GROUP BY 语法
+
+	SELECT column_name, aggregate_function(column_name)
+	FROM table_name
+	WHERE column_name operator value
+	GROUP BY column_name;
 
 
+## MySQL 正则表达式 ##
 
+在前面的章节我们已经了解到MySQL可以通过 LIKE ...% 来进行模糊匹配。
 
+MySQL 同样也支持其他正则表达式的匹配， MySQL中使用 REGEXP 操作符来进行正则表达式匹配。
 
+实例
+了解以上的正则需求后，我们就可以根据自己的需求来编写带有正则表达式的SQL语句。以下我们将列出几个小实例(表名：person_tbl )来加深我们的理解：
 
-
-
-
+查找name字段中以'st'为开头的所有数据：
+	
+	mysql> SELECT name FROM person_tbl WHERE name REGEXP '^st';
+查找name字段中以'ok'为结尾的所有数据：
+	
+	mysql> SELECT name FROM person_tbl WHERE name REGEXP 'ok$';
+查找name字段中包含'mar'字符串的所有数据：
+	
+	mysql> SELECT name FROM person_tbl WHERE name REGEXP 'mar';
+查找name字段中以元音字符开头或以'ok'字符串结尾的所有数据：
+	
+	mysql> SELECT name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$';
 
