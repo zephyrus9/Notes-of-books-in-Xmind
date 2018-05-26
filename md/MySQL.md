@@ -276,6 +276,7 @@ SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这�
 
 ## SQL UNION 操作符 ##
 SQL UNION 操作符合并两个或多个 SELECT 语句的结果。
+union会对结果集进行处理排除掉相同的结果，
 
 实例
 
@@ -284,6 +285,11 @@ SQL UNION 操作符合并两个或多个 SELECT 语句的结果。
 	SELECT country FROM apps
 	ORDER BY country;
 ### SQL UNION ALL 实例 ###
+
+union all 不会对结果集进行处理，不会处理掉相同的结果，
+所以，union all 的效率会比union高，
+另外，where也会对结果集进行处理掉相同的数据
+
 
 ## INSERT INTO SELECT 语句 ##
 INSERT INTO SELECT 语句从一个表复制数据，然后把数据插入到一个已存在的表中。
@@ -315,14 +321,117 @@ SQL INSERT INTO SELECT 语法
 
 实例
 	
-	CREATE TABLE Persons
-	(
-	PersonID int,
-	LastName varchar(255),
-	FirstName varchar(255),
-	Address varchar(255),
-	City varchar(255)
-	);
+	create table emp(
+	ename varchar(10), 
+	hiredate date, 
+	salary decimal(10, 2), 
+	deptno int(2));
+创建表完成之后可以使用下命令查看表属性
+
+	DESC tablename;
+
+如：
+
+	mysql> desc emp
+	    -> ;
+	+----------+---------------+------+-----+---------+-------+
+	| Field    | Type          | Null | Key | Default | Extra |
+	+----------+---------------+------+-----+---------+-------+
+	| ename    | varchar(10)   | YES  |     | NULL    |       |
+	| hiredate | date          | YES  |     | NULL    |       |
+	| salary   | decimal(10,2) | YES  |     | NULL    |       |
+	| deptno   | int(2)        | YES  |     | NULL    |       |
+	+----------+---------------+------+-----+---------+-------+
+	4 rows in set (0.05 sec)
+
+增加字段：
+	
+	ALTER TABLE tablename ADD [COLUMN] column_definition [FIRST | AFTER col_name]
+如：
+
+	mysql> alter table emp add column age int(3) ;
+	Query OK, 0 rows affected (1.51 sec)
+	Records: 0  Duplicates: 0  Warnings: 0
+	
+	mysql> desc emp ;
+	+----------+---------------+------+-----+---------+-------+
+	| Field    | Type          | Null | Key | Default | Extra |
+	+----------+---------------+------+-----+---------+-------+
+	| ename    | varchar(10)   | YES  |     | NULL    |       |
+	| hiredate | date          | YES  |     | NULL    |       |
+	| salary   | decimal(10,2) | YES  |     | NULL    |       |
+	| deptno   | int(2)        | YES  |     | NULL    |       |
+	| age      | int(3)        | YES  |     | NULL    |       |
+	+----------+---------------+------+-----+---------+-------+
+	5 rows in set (0.00 sec)
+
+删除表字段:
+
+ALTER TABLE tablename DROP [COLUMN] col_name
+如：
+
+mysql> alter table emp drop column age ;
+Query OK, 0 rows affected (1.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+	mysql> desc emp;
+	+----------+---------------+------+-----+---------+-------+
+	| Field    | Type          | Null | Key | Default | Extra |
+	+----------+---------------+------+-----+---------+-------+
+	| ename    | varchar(10)   | YES  |     | NULL    |       |
+	| hiredate | date          | YES  |     | NULL    |       |
+	| salary   | decimal(10,2) | YES  |     | NULL    |       |
+	| deptno   | int(2)        | YES  |     | NULL    |       |
+	+----------+---------------+------+-----+---------+-------+
+	4 rows in set (0.00 sec)
+
+修改字段名：
+ALTER TABLE tablename CHANGE [COLUMN] old_col_name column_definition
+[FIRST|AFTER col_name]
+
+	mysql> alter table emp add column age int(3);
+	Query OK, 0 rows affected (1.69 sec)
+	Records: 0  Duplicates: 0  Warnings: 0
+	
+	mysql> alter table emp change age age2 int(4) ;
+	Query OK, 0 rows affected (0.21 sec)
+	Records: 0  Duplicates: 0  Warnings: 0
+	
+	mysql> desc emp ;
+	+----------+---------------+------+-----+---------+-------+
+	| Field    | Type          | Null | Key | Default | Extra |
+	+----------+---------------+------+-----+---------+-------+
+	| ename    | varchar(10)   | YES  |     | NULL    |       |
+	| hiredate | date          | YES  |     | NULL    |       |
+	| salary   | decimal(10,2) | YES  |     | NULL    |       |
+	| deptno   | int(2)        | YES  |     | NULL    |       |
+	| age2     | int(4)        | YES  |     | NULL    |       |
+	+----------+---------------+------+-----+---------+-------+
+	5 rows in set (0.00 sec)
+
+修改字段排列顺序：
+
+	mysql> alter table emp modify age2 int(4) first ;
+	Query OK, 0 rows affected (1.56 sec)
+	Records: 0  Duplicates: 0  Warnings: 0
+	
+	mysql> desc emp;
+	+----------+---------------+------+-----+---------+-------+
+	| Field    | Type          | Null | Key | Default | Extra |
+	+----------+---------------+------+-----+---------+-------+
+	| age2     | int(4)        | YES  |     | NULL    |       |
+	| ename    | varchar(10)   | YES  |     | NULL    |       |
+	| hiredate | date          | YES  |     | NULL    |       |
+	| salary   | decimal(10,2) | YES  |     | NULL    |       |
+	| deptno   | int(2)        | YES  |     | NULL    |       |
+	+----------+---------------+------+-----+---------+-------+
+	5 rows in set (0.00 sec)
+
+
+
+
+
+
 
 ## SQL 约束 ##
 
@@ -493,4 +602,22 @@ MySQL 同样也支持其他正则表达式的匹配， MySQL中使用 REGEXP 操
 查找name字段中以元音字符开头或以'ok'字符串结尾的所有数据：
 	
 	mysql> SELECT name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$';
+
+
+
+## 使用子查询 ##
+
+	SELECT order_num
+	FROM orderitems
+	WHERE prod_id = "TNT2";
+
+
+
+
+
+
+
+
+
+
 
