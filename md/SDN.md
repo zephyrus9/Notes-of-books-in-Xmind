@@ -10,7 +10,6 @@ ONF（Open Networking Foundation，开发网络基金会）标准化组织提出
 
 
 
-
 ## 1.4 SDN核心技术 ##
 
 SDN核心技术体系如下图所示。
